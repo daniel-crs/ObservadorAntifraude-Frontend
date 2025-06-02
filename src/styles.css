@@ -1,1 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+:root {
+    --primaria: #155BBC;
+}
+
+@layer base {
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        font-family: sans-serif;
+        color: #333;
+    }
+
+    @font-face {
+        font-family: Proxima Nova;
+        font-weight: 400;
+        src: url(caminho) format(formato);
+    }
+    @font-face {
+        font-family: Proxima Nova;
+        font-weight: 500;
+        src: url(caminho) format(formato);
+    }
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+@media (min-width: 400px) {
+    .container {
+        max-width: 80%;
+    }
+}

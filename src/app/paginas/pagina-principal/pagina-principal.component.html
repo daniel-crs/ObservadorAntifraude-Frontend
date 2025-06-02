@@ -1,0 +1,13 @@
+<body class="container min-h-screen flex flex-col justify-center items-center gap-[1.6rem]">
+    <app-titulo-principal></app-titulo-principal>
+
+    <section>
+        @for(botao of listagemDeBotoes; track botao.titulo) {
+            <div class="flex justify-center items-center gap-2 bg-(--primaria) text-white rounded-lg py-3 mb-4 w-[250px]">
+                <img src="{{botao.icone}}" alt="">
+
+                <h3>{{botao.titulo}}</h3>
+            </div>
+        }
+    </section>
+</body>
