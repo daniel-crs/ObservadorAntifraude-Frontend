@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 :root {
-    --primaria: #155BBC;
+    --cor-principal: #155BBC;
+    --cor-secundaria: ;
 }
 
 @layer base {
@@ -18,26 +19,44 @@
         font-family: sans-serif;
         color: #333;
     }
-
-    @font-face {
-        font-family: Proxima Nova;
-        font-weight: 400;
-        src: url(caminho) format(formato);
-    }
-    @font-face {
-        font-family: Proxima Nova;
-        font-weight: 500;
-        src: url(caminho) format(formato);
-    }
 }
 
-.container {
+.container-principal {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.container-secundario {
     max-width: 90%;
     margin: 0 auto;
 }
 
 @media (min-width: 400px) {
-    .container {
+    .container-principal {
         max-width: 80%;
+    }
+
+    .container-secundario {
+        max-width: 80%;
+    }
+}
+
+@media (min-width: 768px) {
+    .container-principal {
+        max-width: 70%;
+    }
+
+    .container-secundario {
+        max-width: 70%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container-principal {
+        max-width: 50rem;
+    }
+
+    .container-secundario {
+        max-width: 50rem;
     }
 }

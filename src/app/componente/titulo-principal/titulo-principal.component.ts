@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-titulo-principal',
@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './titulo-principal.component.css'
 })
 export class TituloPrincipalComponent {
-
+  @Input() titulo: string = '';
+  @Input() descricao: string = '';
 }
