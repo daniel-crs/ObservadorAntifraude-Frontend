@@ -1,0 +1,27 @@
+<div class="grid grid-cols-2 gap-4">
+    <label class="flex flex-col">
+        <span class="mb-1 font-medium">Cidade*</span>
+        <select
+            name="selecaoCidade"
+            required
+            class="border borde-(--borda-cinza) rounded-sm px-2 py-1 h-8 lg:h-10 text-sm"
+        >
+            @for(item of opcoesCidades; track item) {
+                <option value="item.valor">{{ item.nome }}</option>
+            }
+        </select>
+    </label>
+
+    <label class="flex flex-col">
+        <span class="mb-1 font-medium">Estado*</span>
+        <select
+            name="selecaoEstado"
+            required
+            class="border borde-(--borda-cinza) rounded-sm px-2 py-1 h-8 lg:h-10 text-sm"
+        >
+            @for(item of opcoesEstados; track item) {
+                <option value="item.sigla">{{ item.nome }}</option>
+            }
+        </select>
+    </label>
+</div>

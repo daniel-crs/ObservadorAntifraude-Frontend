@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 
+import { CamposCidadeEstadoComponent } from "../campos-cidade-estado/campos-cidade-estado.component";
+
 @Component({
-  selector: 'app-formulario-de-usuario',
-  imports: [],
-  templateUrl: './formulario-de-usuario.component.html',
-  styleUrl: './formulario-de-usuario.component.css'
+  selector: 'app-formulario',
+  imports: [CamposCidadeEstadoComponent],
+  templateUrl: './formulario.component.html',
+  styleUrl: './formulario.component.css'
 })
-export class FormularioDeUsuarioComponent {
+export class FormularioComponent {
   nome: string = '';
   cpf: string = '';
   email: string = '';
@@ -14,13 +16,10 @@ export class FormularioDeUsuarioComponent {
   cep: string = '';
   cidade: string = '';
   estado: string = '';
+  
   dados: { nome: string; cpf: string; email: string; telefone: string; cep: string; cidade: string; estado: string; } | null = null;
 
   enviarFormulario() {
-    if (!this.nome || !this.cpf) {
-      alert('Por favor, preencha todos os campos obrigatórios.');
-      return;
-    }
     this.dados = {
       nome: this.nome,
       cpf: this.cpf,

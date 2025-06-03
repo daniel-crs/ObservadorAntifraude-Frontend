@@ -4,7 +4,7 @@
     <section>
         <h1 class="text-xl lg:text-2xl font-bold text-(--cor-principal)">1. Identificação do Relatante:</h1>
         
-        <div class="flex flex-col lg:flex-row lg:items-center lg:gap-6 my-4">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:gap-6 my-4 md:mx-6">
             <h3 class="lg:text-lg font-medium">Deseja manter o anonimato?</h3>
 
             <div class="flex justify-center items-center gap-4 mt-2 lg:mt-0">
@@ -30,7 +30,7 @@
 
          @switch (anonimato) {
             @case (false) {
-                <app-formulario-de-usuario></app-formulario-de-usuario>
+                <app-formulario></app-formulario>
             }
             @case (true) {
                 <h1>Formulario anonimo</h1>
