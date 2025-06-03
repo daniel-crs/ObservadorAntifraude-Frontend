@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 
 import { CamposCidadeEstadoComponent } from "../campos-cidade-estado/campos-cidade-estado.component";
+import { CampoVitmaDaFraudeComponent } from '../campo-vitma-da-fraude/campo-vitma-da-fraude.component';
 
 @Component({
   selector: 'app-formulario',
-  imports: [CamposCidadeEstadoComponent],
+  imports: [CamposCidadeEstadoComponent, CampoVitmaDaFraudeComponent],
   templateUrl: './formulario.component.html',
   styleUrl: './formulario.component.css'
 })

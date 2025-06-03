@@ -1,0 +1,41 @@
+<div>
+    <div class="flex flex-col lg:flex-row lg:items-center lg:gap-6 md:mx-6">
+        <h3 class="lg:text-lg font-medium w-62 lg:w-56">Outras pessoas foram vítimas da mesma Fraude?</h3>
+    
+        <div class="flex justify-center items-center gap-4 mt-2 lg:mt-0">
+            <button
+                (click)="selecionarMaisDeUmaVitima(true)"
+                [ngClass]="maisDeUmaVitima ? 'bg-[var(--cor-principal)] text-white' : 'border border-[var(--cor-principal)] text-[var(--cor-principal)]'"
+                class="rounded-lg py-1 px-8 cursor-pointer transition-colors"
+            > 
+                Sim 
+            </button>
+            
+            <p>ou</p>
+    
+            <button
+                (click)="selecionarMaisDeUmaVitima(false)"
+                [ngClass]="!maisDeUmaVitima ? 'bg-[var(--cor-principal)] text-white' : 'border border-[var(--cor-principal)] text-[var(--cor-principal)]'"
+                class="rounded-lg py-1 px-8 cursor-pointer transition-colors"
+            >
+                Não
+            </button>
+        </div>
+    </div>
+
+    @if(maisDeUmaVitima == true) {
+        <div class="flex flex-col gap-4 mt-4">
+            <label class="flex items-center gap-3">
+                <span class="text-base">Se sim, quantas?</span>
+                <select
+                    name="opcoes"
+                    class="border borde-(--cor-principal) rounded-sm pr-6 pl-1 py-1 text-sm text-(--cor-principal)"
+                >
+                    @for(opcao of opcoes; track opcao) {
+                        <option [value]="opcao">{{ opcao }}</option>
+                    }
+                </select>
+            </label>
+        </div>
+    }
+</div>

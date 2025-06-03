@@ -1,0 +1,31 @@
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:gap-6 my-4 md:mx-6">
+        <h3 class="lg:text-lg font-medium">Você foi vítima de Fraude?</h3>
+    
+        <div class="flex justify-center items-center gap-4 mt-2 lg:mt-0">
+            <button
+                (click)="selecionarOutrasVitimas(true)"
+                [ngClass]="outrasVitimas ? 'bg-[var(--cor-principal)] text-white' : 'border border-[var(--cor-principal)] text-[var(--cor-principal)]'"
+                class="rounded-lg py-1 px-8 cursor-pointer transition-colors"
+            > 
+                Sim 
+            </button>
+            
+            <p>ou</p>
+    
+            <button
+                (click)="selecionarOutrasVitimas(false)"
+                [ngClass]="!outrasVitimas ? 'bg-[var(--cor-principal)] text-white' : 'border border-[var(--cor-principal)] text-[var(--cor-principal)]'"
+                class="rounded-lg py-1 px-8 cursor-pointer transition-colors"
+            >
+                Não
+            </button>
+        </div>
+    </div>
+
+    @if (outrasVitimas == false) {
+        <app-campo-vitimas-adicionais></app-campo-vitimas-adicionais>
+    } @else {
+        
+    }
+</div>

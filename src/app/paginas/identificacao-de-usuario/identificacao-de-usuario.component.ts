@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TituloPrincipalComponent } from '../../componente/titulo-principal/titulo-principal.component';
+import { BarraDeProgressaoComponent } from '../../componente/barra-de-progressao/barra-de-progressao.component';
 import { FormularioComponent } from './componente/formulario/formulario.component';
 
 @Component({
   selector: 'app-identificacao-de-usuario',
-  imports: [CommonModule, TituloPrincipalComponent, FormularioComponent],
+  imports: [CommonModule, TituloPrincipalComponent, BarraDeProgressaoComponent, FormularioComponent],
   templateUrl: './identificacao-de-usuario.component.html',
   styleUrl: './identificacao-de-usuario.component.css'
 })
