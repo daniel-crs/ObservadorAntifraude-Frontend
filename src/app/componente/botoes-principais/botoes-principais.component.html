@@ -1,6 +1,6 @@
 <section class="flex flex-col lg:flex-row gap-4 lg:gap-8">
     @for(botao of listagemDeBotoes; track botao.titulo) {
-        <div class="flex justify-center items-center gap-2 bg-(--cor-principal) text-white rounded-lg py-4 w-[250px] cursor-pointer">
+        <div routerLink="{{[botao.rota]}}" class="flex justify-center items-center gap-2 bg-(--cor-principal) text-white rounded-lg py-4 w-[250px] cursor-pointer">
             <img src="{{botao.icone}}" alt="" class="w-5 h-5 lg:w-6 lg:h-6">
 
             <h3 class="text-sm lg:text-base">{{botao.titulo}}</h3>

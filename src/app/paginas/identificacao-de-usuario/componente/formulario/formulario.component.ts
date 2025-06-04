@@ -2,14 +2,18 @@ import { Component } from '@angular/core';
 
 import { CamposCidadeEstadoComponent } from "../campos-cidade-estado/campos-cidade-estado.component";
 import { CampoVitmaDaFraudeComponent } from '../campo-vitma-da-fraude/campo-vitma-da-fraude.component';
+import { BotoesDeNavegacaoComponent } from '../../../../componente/botoes-de-navegacao/botoes-de-navegacao.component';
 
 @Component({
   selector: 'app-formulario',
-  imports: [CamposCidadeEstadoComponent, CampoVitmaDaFraudeComponent],
+  imports: [CamposCidadeEstadoComponent, CampoVitmaDaFraudeComponent, BotoesDeNavegacaoComponent],
   templateUrl: './formulario.component.html',
   styleUrl: './formulario.component.css'
 })
 export class FormularioComponent {
+  urlDeRetornoValor: string = ''; 
+  urlDeProximoValor: string = '/cadastro-de-relato';
+
   nome: string = '';
   cpf: string = '';
   email: string = '';

@@ -10,14 +10,8 @@ import { CommonModule } from '@angular/common';
 export class CampoVitimasAdicionaisComponent {
   maisDeUmaVitima = false;
   opcoes = [1, 2, 3, 4, 5];
-  quantidadeVitimas = 1;
-  vitimas: { id: number; cpf: string }[] = [{ id: 1, cpf: '' }];
 
   selecionarMaisDeUmaVitima(valor: boolean) {
     this.maisDeUmaVitima = valor;
-    if (!valor) {
-      this.quantidadeVitimas = 1;
-      this.vitimas = [{ id: 1, cpf: '' }];
-    }
   }
 }

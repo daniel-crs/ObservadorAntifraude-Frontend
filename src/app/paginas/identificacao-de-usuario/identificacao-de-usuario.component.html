@@ -4,40 +4,38 @@
     <app-barra-de-progressao></app-barra-de-progressao>
 
     <section>
-        <h1 class="text-xl lg:text-2xl font-bold text-(--cor-principal)">1. Identificação do Relatante:</h1>
+        <h1 class="text-xl lg:text-2xl font-bold text-(--cor-principal)">1. Identificação do Relatante</h1>
         
-        <div class="">
-            <div class="flex flex-col lg:items-center lg:gap-6 my-4 md:mx-6">
-                <h3 class="lg:text-lg font-medium">Deseja manter o anonimato?</h3>
-    
-                <div class="flex justify-center items-center gap-4 mt-2 lg:mt-0">
-                    <button
-                        (click)="selecionarAnonimato(true); showDialog()"
-                        [ngClass]="anonimato ? 'bg-[var(--cor-principal)] text-white' : 'border border-[var(--cor-principal)] text-[var(--cor-principal)]'"
-                        class="rounded-lg py-1 px-8 cursor-pointer transition-colors"
-                    > 
-                        Sim 
-                    </button>
-                    
-                    <p>ou</p>
-    
-                    <button
-                        (click)="selecionarAnonimato(false)"
-                        [ngClass]="!anonimato ? 'bg-[var(--cor-principal)] text-white' : 'border border-[var(--cor-principal)] text-[var(--cor-principal)]'"
-                        class="rounded-lg py-1 px-8 cursor-pointer transition-colors"
-                    >
-                        Não
-                    </button>
-                </div>
+        <div class="flex flex-col lg:items-center lg:gap-6 my-4 md:mx-6">
+            <h3 class="lg:text-lg font-medium">Deseja manter o anonimato?</h3>
+
+            <div class="flex justify-center items-center gap-4 mt-2 lg:mt-0">
+                <button
+                    (click)="selecionarAnonimato(true)"
+                    [ngClass]="anonimato ? 'bg-[var(--cor-principal)] text-white' : 'border border-[var(--cor-principal)] text-[var(--cor-principal)]'"
+                    class="rounded-lg py-1 px-8 cursor-pointer transition-colors"
+                > 
+                    Sim 
+                </button>
+                
+                <p>ou</p>
+
+                <button
+                    (click)="selecionarAnonimato(false)"
+                    [ngClass]="!anonimato ? 'bg-[var(--cor-principal)] text-white' : 'border border-[var(--cor-principal)] text-[var(--cor-principal)]'"
+                    class="rounded-lg py-1 px-8 cursor-pointer transition-colors"
+                >
+                    Não
+                </button>
             </div>
-    
-             @switch (anonimato) {
+        </div>
+
+            @switch (anonimato) {
                 @case (false) {
                     <app-formulario></app-formulario>
                 }
                 @case (true) {
-                }
             }
-        </div>
+        }
     </section>
 </body>

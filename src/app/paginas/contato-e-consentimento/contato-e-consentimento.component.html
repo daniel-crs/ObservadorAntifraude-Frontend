@@ -1,0 +1,46 @@
+<body class="container-secundario flex flex-col pt-12">
+    <app-titulo-principal [titulo]="conteudoTitulo" [descricao]="conteudoDescricao"></app-titulo-principal>
+
+    <app-barra-de-progressao></app-barra-de-progressao>
+
+    <section class="flex flex-col gap-4">
+        <h1 class="text-xl lg:text-2xl font-bold text-(--cor-principal)">3. Consentimento do uso das informações</h1>
+
+        <div class="flex flex-col">
+            <div class="bg-[#FBFBFB] rounded-lg shadow-md p-4 max-h-52 overflow-y-auto text-black text-sm leading-relaxed mx-4">
+                O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente...
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-4 mt-4">
+            @for (item of categoria; track item.id) {
+                <div class="flex justify-between items-center gap-2">
+                    <input 
+                        type="checkbox" 
+                        id="termos"
+                        class="accent-(--cor-principal)"
+                    >
+                    <label for="termos" class="text-sm">{{ item.texto }}</label>
+                </div>
+            }
+        </div>
+
+        <div class="flex justify-between items-center my-4 mx-6">
+            <div
+                type="submit"
+                class="border borde-(--cor-principal) text-(--cor-principal) rounded px-4 py-2 mt-2 hover:bg-blue-700 transition-colors"
+                routerLink="{{[urlDeRetornoValor]}}"
+            >
+                Anterior
+            </div>
+
+            <div
+                type="submit"
+                class="bg-(--cor-principal) text-white rounded px-4 py-2 mt-2 hover:bg-blue-700 transition-colors"
+                routerLink="{{[urlDeProximoValor]}}"
+            >
+                Próxima 
+            </div>
+        </div>
+    </section>
+</body>

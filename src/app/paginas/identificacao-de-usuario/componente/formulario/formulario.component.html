@@ -63,20 +63,6 @@
 
         <app-campo-vitma-da-fraude></app-campo-vitma-da-fraude>
 
-        <div class="flex justify-between items-center my-8 mx-6">
-            <button
-                type="submit"
-                class="border borde-(--cor-principal) text-(--cor-principal) rounded px-4 py-2 mt-2 hover:bg-blue-700 transition-colors"
-            >
-                Anterior
-            </button>
-
-            <button
-                type="submit"
-                class="bg-(--cor-principal) text-white rounded px-4 py-2 mt-2 hover:bg-blue-700 transition-colors"
-            >
-                Próxima 
-            </button>
-        </div>
+        <app-botoes-de-navegacao [urlDeRetorno]="urlDeRetornoValor" [urlDeProximo]="urlDeProximoValor"></app-botoes-de-navegacao>
     </form>
 </section>

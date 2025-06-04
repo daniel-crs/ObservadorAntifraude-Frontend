@@ -1,0 +1,48 @@
+<div>
+    <h2 class="text-xl lg:text-2xl font-medium">Selecione o Sistema SERPRO Relacionado ao Relato: </h2>
+
+    <div class="grid grid-col-1 md:grid-cols-2 gap-4 mt-2 mx-6">
+        @for (sistema of sistemas; track sistema.id) {
+            @if (sistema.id == 1) {
+                <div>
+                    <div class="card flex justify-center gap-2">
+                        <p-toast />
+                        <p-confirmpopup #cp>
+                            <ng-template #headless let-message>
+                                <div class="rounded p-4">
+                                    <span>{{ message.message }}</span>
+                                    <div class="flex items-center gap-2 mt-4">
+                                        <p-button (onClick)="cp.onAccept()" label="Save" size="small" />
+                                        <p-button (onClick)="cp.onReject()" label="Cancel" [text]="true" size="small" severity="secondary" />
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </p-confirmpopup>
+                    </div>
+    
+                    <button
+                        type="button"
+                        (click)="selecionarSistema(sistema.id); confirm($event)"
+                        [ngClass]="sistema.id === sistemaSelecionado
+                        ? 'bg-[var(--cor-principal)] text-white'
+                        : 'bg-white text-(--cor-principal)'"
+                        class="w-full rounded-lg h-14 shadow transition-colors font-medium focus:outline-none shadow-md text-lg lg:text-xl"
+                    >
+                        {{ sistema.titulo }}
+                    </button>
+                </div>
+            } @else {
+                <button
+                    type="button"
+                    (click)="selecionarSistema(sistema.id)"
+                    [ngClass]="sistema.id === sistemaSelecionado
+                    ? 'bg-[var(--cor-principal)] text-white'
+                    : 'bg-white text-(--cor-principal)'"
+                    class="rounded-lg h-14 shadow transition-colors font-medium focus:outline-none shadow-md text-lg lg:text-xl"
+                >
+                    {{ sistema.titulo }}
+                </button>
+            }
+        }
+    </div>
+</div>

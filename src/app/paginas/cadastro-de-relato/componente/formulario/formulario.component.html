@@ -1,0 +1,17 @@
+<form class="grid grid-col-1 md:grid-cols-2 gap-4 mt-4">
+    <div>
+        <h2 class="text-xl lg:text-2xl font-medium mb-2">Informe seus dados abaixo:</h2>
+
+        <label class="flex flex-col mx-6">
+            <select
+                name=""
+                required
+                class="border borde-(--borda-cinza) rounded-sm px-2 py-1 h-8 lg:h-10 text-sm"
+            >
+                @for(item of opcoesFraude; track item) {
+                    <option value="item.sigla">{{ item.nome }}</option>
+                }
+            </select>
+        </label>
+    </div>
+</form>

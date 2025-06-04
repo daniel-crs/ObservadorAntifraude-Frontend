@@ -1,0 +1,18 @@
+<div>
+    <h2 class="text-xl lg:text-2xl font-medium">Selecione o Sistema SERPRO Relacionado ao Relato: </h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-2 mx-6">
+        @for (item of contatos; track item.id) {
+            <button
+                type="button"
+                (click)="contatosSistema(item.id)"
+                [ngClass]="item.id === contatoSelecionado
+                ? 'bg-[var(--cor-principal)] text-white'
+                : 'bg-white text-(--cor-principal)'"
+                class="rounded-lg h-10 shadow transition-colors font-medium focus:outline-none shadow-md text-base lg:text-lg"
+            >
+                {{ item.titulo }}
+            </button>
+        }
+    </div>
+</div>
