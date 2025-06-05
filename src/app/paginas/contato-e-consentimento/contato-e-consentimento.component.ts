@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CheckboxModule } from 'primeng/checkbox';
+import { CommonModule } from '@angular/common';
 
 import { TituloPrincipalComponent } from '../../componente/titulo-principal/titulo-principal.component';
 import { BarraDeProgressaoComponent } from '../../componente/barra-de-progressao/barra-de-progressao.component';
 
 @Component({
   selector: 'app-contato-e-consentimento',
-  imports: [TituloPrincipalComponent, BarraDeProgressaoComponent, RouterModule],
+  imports: [TituloPrincipalComponent, BarraDeProgressaoComponent, RouterModule, FormsModule, CheckboxModule, CommonModule],
   templateUrl: './contato-e-consentimento.component.html',
   styleUrl: './contato-e-consentimento.component.css'
 })
@@ -15,16 +18,16 @@ export class ContatoEConsentimentoComponent {
   urlDeProximoValor: string = '';
   
   conteudoTitulo: string = 'Contato e Consentimento';
-  conteudoDescricao: string = ' Preencha as informações abaixo para relatar uma suspeita de fraude. Seus dados serão tratados com sigilo e utilizados apenas para análise do relato.';
+  conteudoDescricao: string = 'Preencha as informações abaixo para relatar uma suspeita de fraude. Seus dados serão tratados com sigilo e utilizados apenas para análise do relato.';
 
-  categoria = [
-    { id: 1, texto: 'Ao enviar este formulário, em caso de fraude comprovada, autorizo o encaminhamento de relato para as autoridades competentes.', checked: false },
-    { id: 2, texto: 'Ao enviar este relato, concordo com o uso das informações conforme o Aviso de Privacidade.', checked: false }
+  selecionaCategorias: any[] = [];
+
+  categorias = [
+    { id: '1', texto: 'Ao enviar este formulário, em caso de fraude comprovada, autorizo o encaminhamento de relato para as autoridades competentes.', checked: false },
+    { id: '2', texto: 'Ao enviar este relato, concordo com o uso das informações conforme o Aviso de Privacidade.', checked: false }
   ];
 
-  algumaNaoMarcada: boolean = true;
-
-  verificarConsentimento() {
-    this.algumaNaoMarcada = this.categoria.some(item => !item.checked);
-  }
+  ngOnInit() {
+        this.selecionaCategorias = [this.categorias[1]];
+    }
 }
