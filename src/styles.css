@@ -5,6 +5,7 @@
     --cor-secundaria: ;
     --borda-cinza: #888888;
     --cor-cinza-claro: #FBFBFB;
+    --cor-vermelho: #D40000;
 }
 
 @layer base {

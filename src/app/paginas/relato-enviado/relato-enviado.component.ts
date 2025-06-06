@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { AnonimoService } from '../../service/data-anonimo.service';
 
 import { TituloPrincipalComponent } from '../../componente/titulo-principal/titulo-principal.component';
 import { BotoesPrincipaisComponent } from '../../componente/botoes-principais/botoes-principais.component';
@@ -16,7 +17,9 @@ export class RelatoEnviadoComponent {
   conteudoTitulo: string = 'Seu Relato foi enviado!';
   conteudoDescricao: string = 'Seu relato foi encaminhado para análise com o seguinte código:';
 
-  constructor(private messageService: MessageService) {}
+  isAnonimo: boolean = false;
+
+  constructor(private messageService: MessageService, private anonimoService: AnonimoService) {}
 
   copiarCodigo(codigo: string) {
     navigator.clipboard.writeText(codigo)
@@ -35,5 +38,11 @@ export class RelatoEnviadoComponent {
         });
         console.error('Erro ao copiar código:', err);
       });
+  }
+
+  ngOnInit() {
+    this.anonimoService.getAnonimo().subscribe(valor => {
+      this.isAnonimo = valor;
+    });
   }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AnonimoService } from '../../service/data-anonimo.service';
 
 import { TituloPrincipalComponent } from '../../componente/titulo-principal/titulo-principal.component';
 import { BarraDeProgressaoComponent } from '../../componente/barra-de-progressao/barra-de-progressao.component';
@@ -15,9 +16,17 @@ export class IdentificacaoDeUsuarioComponent {
   conteudoTitulo: string = 'Identificação do usuário';
   conteudoDescricao: string = 'Preencha as informações abaixo para relatar uma suspeita fraude. Seus dados serão tratados com sigilo e utilizados apenas para análise do relato.';
 
-  anonimato: boolean = false;
+  constructor(private anonimoService: AnonimoService) {}
 
   selecionarAnonimato(valor: boolean) {
-    this.anonimato = valor;
+    this.anonimoService.setAnonimo(valor);
+  }
+
+  getAnonimo(): boolean {
+    let isAnonimo: boolean = false;
+    this.anonimoService.getAnonimo().subscribe(valor => {
+      isAnonimo = valor;
+    });
+    return isAnonimo;
   }
 }
