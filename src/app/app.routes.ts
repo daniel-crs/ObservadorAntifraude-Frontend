@@ -3,6 +3,7 @@ import { PaginaPrincipalComponent } from './paginas/pagina-principal/pagina-prin
 import { IdentificacaoDeUsuarioComponent } from './paginas/identificacao-de-usuario/identificacao-de-usuario.component';
 import { CadastroDeRelatoComponent } from './paginas/cadastro-de-relato/cadastro-de-relato.component';
 import { ContatoEConsentimentoComponent } from './paginas/contato-e-consentimento/contato-e-consentimento.component';
+import { RelatoEnviadoComponent } from './paginas/relato-enviado/relato-enviado.component';
 
 export const routes: Routes = [
     {
@@ -24,5 +25,10 @@ export const routes: Routes = [
         path: 'contato-e-consentimento',
         component: ContatoEConsentimentoComponent,
         title: 'Página de contato e consentimento',
+    },
+    {
+        path: 'relato-enviado',
+        component: RelatoEnviadoComponent,
+        title: 'Página de envio de relato',
     },
 ];

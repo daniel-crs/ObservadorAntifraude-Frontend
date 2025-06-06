@@ -1,1 +1,30 @@
-<p>relato-enviado works!</p>
+<body class="container-secundario flex flex-col pt-26 md:pt-28 lg:pt-30 xl:pt-36">
+    <div class="flex flex-col items-center">
+        <img src="icons/confirmado.svg" alt="" class="w-12 h-12 lg:w-16 lg:h-16">
+            
+        <h2 class="text-2xl lg:text-4xl font-bold py-3 lg:py-4">Seu Relato foi enviado!</h2>
+
+        <p class="w-full md:w-80 lg:w-96 lg:w-2xl text-base lg:text-2xl text-center ">
+            Seu relato foi encaminhado para análise com o seguinte código:
+        </p>
+    </div>
+
+    <section class="flex flex-col items-center">
+        <p-toast position="bottom-center"></p-toast>
+        <div class="flex items-center justify-between w-62 lg: bg-(--cor-cinza-claro) rounded-lg shadow-md p-3 my-4">
+            <span></span>
+            <span class="text-lg font-medium">RX000001</span>
+            <button 
+                (click)="copiarCodigo('RX000001')"
+                class="flex items-center gap-2 text-[var(--cor-principal)] hover:opacity-80 transition-opacity"
+            >
+                <img src="icons/copia-e-cola.svg" alt="Copiar código" class="w-5 h-5"/>
+            </button>
+        </div>
+
+        <div class="flex flex-col items-center gap-2 lg:gap-4 text-center md:w-80 lg:w-96 lg:text-xl text-gray-700 mx-4 md:mx-8">
+            Você pode consultar o andamento da análise a qualquer momento, na seção
+            <app-botoes-principais></app-botoes-principais>
+        </div>
+    </section>
+</body>

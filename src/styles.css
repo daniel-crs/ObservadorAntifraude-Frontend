@@ -4,6 +4,7 @@
     --cor-principal: #155BBC;
     --cor-secundaria: ;
     --borda-cinza: #888888;
+    --cor-cinza-claro: #FBFBFB;
 }
 
 @layer base {
