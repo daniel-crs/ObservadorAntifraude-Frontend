@@ -17,7 +17,7 @@ export class BotoesPrincipaisComponent {
     },
     {
       titulo: 'CONSULTAR RELATO',
-      rota: '',
+      rota: '/consultar-relato',
       icone: 'icons/pesquisa-de-fraude.svg'
     }
   ]
