@@ -5,6 +5,7 @@ import { CadastroDeRelatoComponent } from './paginas/cadastro-de-relato/cadastro
 import { ContatoEConsentimentoComponent } from './paginas/contato-e-consentimento/contato-e-consentimento.component';
 import { RelatoEnviadoComponent } from './paginas/relato-enviado/relato-enviado.component';
 import { ConsultarRelatoComponent } from './paginas/consultar-relato/consultar-relato.component';
+import { AnaliseDeRelatoComponent } from './paginas/analise-de-relato/analise-de-relato.component';
 
 export const routes: Routes = [
     {
@@ -36,5 +37,10 @@ export const routes: Routes = [
         path: 'consultar-relato',
         component: ConsultarRelatoComponent,
         title: 'Página de consulta de relato',
+    },
+    {
+        path: 'analise-de-relato/:id',
+        component: AnaliseDeRelatoComponent,
+        title: 'Página de Análise de Relato',
     },
 ];
