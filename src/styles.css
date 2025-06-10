@@ -34,8 +34,17 @@
     margin: 0 auto;
 }
 
+.container-anonimo {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
 @media (min-width: 400px) {
     .container-secundario {
+        max-width: 80%;
+    }
+
+    .container-anonimo {
         max-width: 80%;
     }
 }
@@ -48,6 +57,10 @@
     .container-secundario {
         max-width: 70%;
     }
+
+    .container-anonimo {
+        max-width: 70%;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -56,7 +69,11 @@
     }
 
     .container-secundario {
-        max-width: 50rem;
+        width: 50rem;
+    }
+
+    .container-anonimo {
+        width: 40rem;
     }
 }
 

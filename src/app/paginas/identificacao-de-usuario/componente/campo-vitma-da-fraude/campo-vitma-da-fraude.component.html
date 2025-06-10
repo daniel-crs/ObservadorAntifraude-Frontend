@@ -1,5 +1,5 @@
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="flex flex-col lg:flex-row lg:items-center lg:gap-6 my-4 md:mx-6">
+<div [ngClass]="isAnonimo ? 'grid grid-cols-1 md:justify-items-center' : 'grid grid-cols-1 md:grid-cols-2 gap-x-8'">
+    <div [ngClass]="isAnonimo ? 'flex flex-col lg:items-center lg:gap-2 my-4 md:mx-6' : 'flex flex-col lg:flex-row lg:items-center lg:gap-6 my-4 md:mx-6'">
         <h3 class="lg:text-lg font-medium">Você foi vítima de Fraude?</h3>
     
         <div class="flex justify-center items-center gap-4 mt-2 lg:mt-0">
@@ -24,6 +24,44 @@
     </div>
 
     @if (!outrasVitimas) {
-        <app-campo-vitimas-adicionais></app-campo-vitimas-adicionais>
+        <div [ngClass]="isAnonimo ? 'flex flex-col lg:items-center lg:gap-2' : 'flex flex-col lg:flex-row lg:items-center lg:gap-6 my-4 md:mx-6'">
+            <h3 [ngClass]="isAnonimo ? 'lg:text-lg font-medium w-62 lg:w-full' : 'lg:text-lg font-medium w-62 lg:w-56'">Outras pessoas foram vítimas da mesma Fraude?</h3>
+        
+            <div class="flex justify-center items-center gap-4 mt-2 lg:mt-0">
+                <button
+                    (click)="selecionarMaisDeUmaVitima(true)"
+                    [ngClass]="maisDeUmaVitima ? 'bg-[var(--cor-principal)] text-white' : 'border border-[var(--cor-principal)] text-[var(--cor-principal)]'"
+                    class="rounded-lg py-1 px-8 cursor-pointer transition-colors"
+                > 
+                    Sim 
+                </button>
+                
+                <p>ou</p>
+        
+                <button
+                    (click)="selecionarMaisDeUmaVitima(false)"
+                    [ngClass]="!maisDeUmaVitima ? 'bg-[var(--cor-principal)] text-white' : 'border border-[var(--cor-principal)] text-[var(--cor-principal)]'"
+                    class="rounded-lg py-1 px-8 cursor-pointer transition-colors"
+                >
+                    Não
+                </button>
+            </div>
+        </div>
+    }
+
+    @if(maisDeUmaVitima) {
+        <div [ngClass]="isAnonimo ? 'flex flex-col justify-center items-center gap-4 mt-4' : 'flex flex-col gap-4 md:mx-6'">
+            <label class="flex items-center gap-3">
+                <span class="text-base lg:text-lg">Se sim, quantas?</span>
+                <select
+                    name="opcoes"
+                    class="border borde-(--cor-principal) rounded-sm pr-8 pl-2 py-1 text-sm text-(--cor-principal)"
+                >
+                    @for(opcao of opcoes; track opcao) {
+                        <option [value]="opcao">{{ opcao }}</option>
+                    }
+                </select>
+            </label>
+        </div>
     }
 </div>
