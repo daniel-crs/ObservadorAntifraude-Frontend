@@ -1,7 +1,7 @@
-<body class="container-principal flex flex-col pt-12">
+<body [ngClass]="getAnonimo() ? 'container-secundario' : 'container-principal'" class="container-principal flex flex-col pt-12">
     <app-titulo-principal [titulo]="conteudoTitulo" [descricao]="conteudoDescricao"></app-titulo-principal>
 
-    <app-barra-de-progressao></app-barra-de-progressao>
+    <app-barra-de-progressao [etapaAtual]="1"></app-barra-de-progressao>
 
     <section>
         <h1 class="text-xl lg:text-2xl font-bold text-(--cor-principal)">1. Identificação do Relatante</h1>
@@ -30,13 +30,53 @@
             </div>
         </div>
 
-        @switch (getAnonimo()) {
-            @case (true) {
-                
+        <div 
+            *ngIf="mostrarModal"
+            class="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
+        >
+            <div class="bg-white rounded-xl p-8 w-[90%] md:w-[30rem] lg:w-[40rem] max-w-md">
+                <div class="flex flex-col items-center text-center gap-2">
+                    <img src="icons/alerta-2.svg" alt="" class="w-12 h-12 lg:w-16 lg:h-16">
+                    
+                    <h2 class="text-xl lg:text-2xl font-bold">Usuário Anônimo</h2>
+                    
+                    <p class="text-gray-600 lg:text-lg">
+                        Ao selecionar a opção de “Anonimato”, o relato necessitará de uma maior precisão devido a carência de informações para contato e devolutivas.
+                    </p>
+                    
+                    <button
+                        (click)="fecharModal()"
+                        class="border border-(--cor-principal) text-(--cor-principal) px-8 py-2 mt-2 rounded-lg font-medium shadow-md lg:text-lg"
+                    >
+                        Entendi
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <form (ngSubmit)="enviarFormulario()">
+            @switch (getAnonimo()) {
+                @case (true) {
+                    <app-campos-cidade-estado [selecaoCidade]="cidade" [selecaoEstado]="estado" ></app-campos-cidade-estado>
+                }
+                @case (false) {
+                    <h1 class="text-xl lg:text-2xl font-medium">Informe seus dados abaixo:</h1>
+
+                    <app-campos-dados-de-usuario 
+                        [(nome)]="nome" 
+                        [(cpf)]="cpf" 
+                        [(email)]="email" 
+                        [(telefone)]="telefone" 
+                        [(cep)]="cep"
+                        [(cidade)]="cidade"
+                        [(estado)]="estado"
+                    ></app-campos-dados-de-usuario>
+                }
             }
-            @case (false) {
-                <app-formulario></app-formulario>
-            }
-        }
+        </form>  
+
+        <app-campo-vitma-da-fraude></app-campo-vitma-da-fraude>
+
+        <app-botoes-de-navegacao [urlDeRetorno]="urlDeRetornoValor" [urlDeProximo]="urlDeProximoValor"></app-botoes-de-navegacao>
     </section>
 </body>

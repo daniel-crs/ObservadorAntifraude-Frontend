@@ -1,0 +1,58 @@
+<div class="grid grid-col-1 md:grid-cols-2 gap-4 my-2 mx-6">
+    <label class="flex flex-col">
+        <span class="mb-1 font-medium">Nome completo *</span>
+        <input
+            type="text"
+            name="nome"
+            required
+            class="border borde-(--borda-cinza) rounded-sm px-2 py-1 placeholder:text-(--borda-cinza) placeholder:px-1 placeholder:text-sm h-8 lg:h-10"
+            placeholder="Ex: Lucas matheus"
+        /> 
+    </label>
+
+    <label class="flex flex-col">
+        <span class="mb-1 font-medium">CPF *</span>
+        <input
+            type="text"
+            name="cpf"
+            required
+            class="border borde-(--borda-cinza) rounded-sm px-2 py-1 placeholder:text-(--borda-cinza) placeholder:px-1 placeholder:text-sm h-8 lg:h-10"
+            placeholder="Ex: 111.222.333-44"
+        /> 
+    </label>
+
+    <label class="flex flex-col">
+        <span class="mb-1 font-medium">E-mail *</span>
+        <input
+            type="text"
+            name="email"
+            required
+            class="border borde-(--borda-cinza) rounded-sm px-2 py-1 placeholder:text-(--borda-cinza) placeholder:px-1 placeholder:text-sm h-8 lg:h-10"
+            placeholder="Ex: lucas.matheus2025@gmail.com"
+        /> 
+    </label>
+
+    <label class="flex flex-col">
+        <span class="mb-1 font-medium">Telefone *</span>
+        <input
+            type="text"
+            name="telefone"
+            required
+            class="border borde-(--borda-cinza) rounded-sm px-2 py-1 placeholder:text-(--borda-cinza) placeholder:px-1 placeholder:text-sm h-8 lg:h-10"
+            placeholder="Ex: (61) 98888-3333"
+        /> 
+    </label>
+
+    <label class="flex flex-col">
+        <span class="mb-1 font-medium">CEP *</span>
+        <input
+            type="text"
+            name="cep"
+            required
+            class="border borde-(--borda-cinza) rounded-sm px-2 py-1 placeholder:text-(--borda-cinza) placeholder:px-1 placeholder:text-sm h-8 lg:h-10"
+            placeholder="Ex: 71285-451"
+        /> 
+    </label>
+
+    <app-campos-cidade-estado [selecaoCidade]="cidade" [selecaoEstado]="estado"></app-campos-cidade-estado>
+</div>

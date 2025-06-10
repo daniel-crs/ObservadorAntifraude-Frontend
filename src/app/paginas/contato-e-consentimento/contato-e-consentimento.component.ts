@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CommonModule } from '@angular/common';
@@ -14,20 +14,38 @@ import { BarraDeProgressaoComponent } from '../../componente/barra-de-progressao
   styleUrl: './contato-e-consentimento.component.css'
 })
 export class ContatoEConsentimentoComponent {
-  urlDeRetornoValor: string = '/identificacao-de-usurio'; 
-  urlDeProximoValor: string = '';
+  urlDeRetornoValor: string = '/cadastro-de-relato'; 
+  urlDeProximoValor: string = '/relato-enviado';
   
   conteudoTitulo: string = 'Contato e Consentimento';
   conteudoDescricao: string = 'Preencha as informações abaixo para relatar uma suspeita de fraude. Seus dados serão tratados com sigilo e utilizados apenas para análise do relato.';
 
-  selecionaCategorias: any[] = [];
+  mostrarModal: boolean = false;
 
-  categorias = [
-    { id: '1', texto: 'Ao enviar este formulário, em caso de fraude comprovada, autorizo o encaminhamento de relato para as autoridades competentes.', checked: false },
-    { id: '2', texto: 'Ao enviar este relato, concordo com o uso das informações conforme o Aviso de Privacidade.', checked: false }
-  ];
+  autorizaRelato: boolean = false;
+  concordaPrivacidade: boolean = false;
+  todosConsentimentos: boolean = false;
 
-  ngOnInit() {
-        this.selecionaCategorias = [this.categorias[1]];
+  constructor(private router: Router) {}
+
+  abrirModal() {
+    this.mostrarModal = true;
+  }
+
+  verificarConsentimentos() {
+    this.todosConsentimentos = this.autorizaRelato && this.concordaPrivacidade;
+  }
+
+  verificarEProsseguir() {
+    if (!this.todosConsentimentos) {
+        this.mostrarModal = true;
+        return;
     }
+    
+    this.router.navigate([this.urlDeProximoValor]);
+  }
+
+  fecharModal() {
+    this.mostrarModal = false;
+  }
 }

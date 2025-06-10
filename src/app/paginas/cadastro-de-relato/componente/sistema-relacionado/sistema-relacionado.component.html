@@ -1,7 +1,7 @@
 <div>
     <h2 class="text-xl lg:text-2xl font-medium">Selecione o Sistema SERPRO Relacionado ao Relato: </h2>
 
-    <div class="grid grid-col-1 md:grid-cols-2 gap-4 mt-2 mx-6">
+    <div class="grid grid-col-1 md:grid-cols-2 gap-4 mt-2 mx-6 lg:mx-12">
         @for (sistema of sistemas; track sistema.id) {
             @if (sistema.id == 1) {
                 <div>
@@ -45,4 +45,34 @@
             }
         }
     </div>
+
+    @if (sistemaSelecionado === 99) {
+        <div class="flex flex-col gap-4 mx-4 mt-8">
+            <div>
+                <h2 class="text-xl font-bold mb-2">Descrição Detalhada do Relato:</h2>
+                <p class="text-gray-600 text-sm">Descreva seu relato com riqueza de detalhes, no entanto, não inclua dados pessoais no relato.</p>
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <textarea
+                    placeholder="Escreva seu relato aqui"
+                    class="w-full h-48 p-4 bg-(--cor-cinza-claro) rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-md"
+                    maxlength="1000"
+                ></textarea>
+
+                <div class="flex justify-between items-center">
+                    <span class="text-sm text-gray-500">
+                        Mínimo de caracteres ({{ caracteresDigitados }}/1000)
+                    </span>
+                    
+                    <button 
+                        (click)="salvarDescricao()"
+                        class="bg-[#8CC63F] text-white px-6 py-2 rounded-lg disabled:opacity-50 transition-all"
+                    >
+                        Salvar
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
 </div>

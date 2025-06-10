@@ -15,7 +15,7 @@ import { BotoesDeNavegacaoComponent } from '../../componente/botoes-de-navegacao
 })
 
 export class CadastroDeRelatoComponent {
-  urlDeRetornoValor: string = '/cadastro-de-relato'; 
+  urlDeRetornoValor: string = '/identificacao-de-usurio'; 
   urlDeProximoValor: string = '/contato-e-consentimento';
   
   conteudoTitulo: string = 'Cadastro de novo relato';

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-barra-de-progressao',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './barra-de-progressao.component.css'
 })
 export class BarraDeProgressaoComponent {
-
+  @Input() etapaAtual: number = 1;
 }

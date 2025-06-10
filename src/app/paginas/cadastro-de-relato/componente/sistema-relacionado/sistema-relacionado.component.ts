@@ -39,4 +39,17 @@ export class SistemaRelacionadoComponent {
           }
       });
   }
+
+  descricaoRelato: string = '';
+  caracteresDigitados: number = 0;
+
+  onDescricaoChange(texto: string) {
+    this.caracteresDigitados = texto.length;
+  }
+
+  salvarDescricao() {
+    if (this.caracteresDigitados >= 100) {
+      console.log('Descrição salva:', this.descricaoRelato);
+    }
+  }
 }

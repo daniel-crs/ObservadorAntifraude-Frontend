@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-
-import { DatePickerModule } from 'primeng/datepicker';
+import { FormsModule } from '@angular/forms';
+import { DatePicker } from 'primeng/datepicker';
 
 @Component({
   selector: 'app-formulario',
-  imports: [DatePickerModule],
+  imports: [FormsModule, DatePicker],
   templateUrl: './formulario.component.html',
   styleUrl: './formulario.component.css'
 })
@@ -14,4 +14,6 @@ export class FormularioComponent {
     { nome: 'São Paulo' },
     { nome: 'São Paulo' },
   ];
+
+  date: Date | undefined;
 }

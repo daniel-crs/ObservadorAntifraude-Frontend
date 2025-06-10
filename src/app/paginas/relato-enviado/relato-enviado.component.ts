@@ -3,12 +3,11 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { AnonimoService } from '../../service/data-anonimo.service';
 
-import { TituloPrincipalComponent } from '../../componente/titulo-principal/titulo-principal.component';
 import { BotoesPrincipaisComponent } from '../../componente/botoes-principais/botoes-principais.component';
 
 @Component({
   selector: 'app-relato-enviado',
-  imports: [ToastModule, TituloPrincipalComponent, BotoesPrincipaisComponent],
+  imports: [ToastModule, BotoesPrincipaisComponent],
   providers: [MessageService],
   templateUrl: './relato-enviado.component.html',
   styleUrl: './relato-enviado.component.css'
