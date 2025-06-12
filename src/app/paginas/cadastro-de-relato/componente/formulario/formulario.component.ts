@@ -6,7 +6,10 @@ import { DatePicker } from 'primeng/datepicker';
   selector: 'app-formulario',
   imports: [FormsModule, DatePicker],
   templateUrl: './formulario.component.html',
-  styleUrl: './formulario.component.css'
+  styleUrls: [ './formulario.component.css' ],
+    host: {
+    "(window:resize)":"onWindowResize($event)"
+  }
 })
 export class FormularioComponent {
   opcoesFraude = [
@@ -16,4 +19,6 @@ export class FormularioComponent {
   ];
 
   date: Date | undefined;
+
+  window = window;
 }

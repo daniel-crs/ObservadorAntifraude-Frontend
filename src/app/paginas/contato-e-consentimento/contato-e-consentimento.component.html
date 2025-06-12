@@ -16,24 +16,30 @@
 
         <div class="flex flex-col gap-4 mx-4 md:mx-8 lg:mx-12">
             <div class="flex items-start gap-3">
-                <input
-                    type="checkbox"
-                    [(ngModel)]="autorizaRelato"
-                    (change)="verificarConsentimentos()"
-                    class="accent-[var(--cor-principal)] w-6 h-6 mt-1"
-                />
+                <div>
+                    <input
+                        type="checkbox"
+                        [(ngModel)]="autorizaRelato"
+                        (change)="verificarConsentimentos()"
+                        class="accent-[var(--cor-principal)] w-4 h-4 lg:w-5 lg:h-5 mt-1"
+                    />
+                </div>
+
                 <span class="text-sm">
                     Ao enviar este formulário, em caso de fraude comprovada, autorizo o encaminhamento de relato para as autoridades competentes
                 </span>
             </div>
 
             <div class="flex items-start gap-3">
-                <input
-                    type="checkbox"
-                    [(ngModel)]="concordaPrivacidade"
-                    (change)="verificarConsentimentos()"
-                    class="accent-[var(--cor-principal)] w-6 h-6 mt-1"
-                />
+                <div>
+                    <input
+                        type="checkbox"
+                        [(ngModel)]="concordaPrivacidade"
+                        (change)="verificarConsentimentos()"
+                        class="accent-[var(--cor-principal)] w-4 h-4 lg:w-5 lg:h-5 mt-1"
+                    />
+                </div>
+
                 <span class="text-sm">
                     Ao enviar este relato, concordo com o uso das informações conforme o Aviso de Privacidade
                 </span>

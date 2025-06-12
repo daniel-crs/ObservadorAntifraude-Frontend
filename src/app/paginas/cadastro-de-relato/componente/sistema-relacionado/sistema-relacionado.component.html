@@ -5,15 +5,25 @@
         @for (sistema of sistemas; track sistema.id) {
             @if (sistema.id == 1) {
                 <div>
-                    <div class="card flex justify-center gap-2">
+                    <div class="card flex justify-center items-center gap-2">
                         <p-toast />
                         <p-confirmpopup #cp>
                             <ng-template #headless let-message>
-                                <div class="rounded p-4">
-                                    <span>{{ message.message }}</span>
-                                    <div class="flex items-center gap-2 mt-4">
-                                        <p-button (onClick)="cp.onAccept()" label="Save" size="small" />
-                                        <p-button (onClick)="cp.onReject()" label="Cancel" [text]="true" size="small" severity="secondary" />
+                                <div class="w-[20rem] rounded-lg bg-(--cor-principal) p-6">
+                                    <p class="w-full text-white mb-6">Houve alguma alteração em seus dados de acesso do portal "Gov.br" (como e-mail ou senha)?</p>
+                                    <div class="flex items-center justify-center gap-3">
+                                        <p-button 
+                                            (onClick)="cp.onAccept()" 
+                                            label="Sim" 
+                                            styleClass="p-button-primary py-6" 
+                                            [style]="{'background-color': '#ffffff', 'border': 'none', 'color': '#155BBC', 'border-radius': '32px', padding: '8px 40px'}"
+                                        />
+                                        <p-button 
+                                            (onClick)="cp.onReject()" 
+                                            label="Não" 
+                                            styleClass="p-button-outlined" 
+                                            [style]="{'background-color': '#ffffff', 'border': 'none', 'color': '#155BBC', 'border-radius': '32px', padding: '8px 40px'}"
+                                        />
                                     </div>
                                 </div>
                             </ng-template>

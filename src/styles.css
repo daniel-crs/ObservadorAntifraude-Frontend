@@ -1,5 +1,48 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: 'Rawline';
+    src: url('/assets/fonts/rawline/rawline-100.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rawline';
+    src: url('/assets/fonts/rawline/rawline-100i.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Rawline';
+    src: url('/assets/fonts/rawline/rawline-400.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rawline';
+    src: url('/assets/fonts/rawline/rawline-400i.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Rawline';
+    src: url('/assets/fonts/rawline/rawline-700.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rawline';
+    src: url('/assets/fonts/rawline/rawline-700i.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+
 :root {
     --cor-principal: #155BBC;
     --cor-secundaria: ;
@@ -37,7 +80,7 @@
     }
 
     html {
-        font-family: sans-serif;
+        font-family: 'Rawline', sans-serif;
         color: #333;
     }
 }
