@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AnonimoService } from '../../service/data-anonimo.service';
+import { Usuario } from '../../service/types/usuario';
+import { UsuariosService } from '../../service/usuarios.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { TituloPrincipalComponent } from '../../componente/titulo-principal/titulo-principal.component';
 import { BarraDeProgressaoComponent } from '../../componente/barra-de-progressao/barra-de-progressao.component';
@@ -27,32 +30,23 @@ export class IdentificacaoDeUsuarioComponent {
   conteudoTitulo: string = 'Identificação do usuário';
   conteudoDescricao: string = 'Preencha as informações abaixo para relatar uma suspeita fraude. Seus dados serão tratados com sigilo e utilizados apenas para análise do relato.';
 
+  usuario: Usuario = {anonimo: false} as Usuario;
+
   urlDeRetornoValor: string = ''; 
   urlDeProximoValor: string = '/cadastro-de-relato';
 
-  nome: string = '';
-  cpf: string = '';
-  email: string = '';
-  telefone: string = '';
-  cep: string = '';
-  cidade: string = '';
-  estado: string = '';
-  
-  dados: { nome: string; cpf: string; email: string; telefone: string; cep: string; cidade: string; estado: string; } | null = null;
+  constructor(
+    private anonimoService: AnonimoService,
+    private services: UsuariosService,
+    private router: Router,
+    private route: ActivatedRoute 
+  ) {}
 
-  enviarFormulario() {
-    this.dados = {
-      nome: this.nome,
-      cpf: this.cpf,
-      email: this.email,
-      telefone: this.telefone,
-      cep: this.cep,
-      cidade: this.cidade,
-      estado: this.estado
-    };
+  submeter() {
+    this.services.incluir(this.usuario).subscribe(() => {
+        this.router.navigate([this.urlDeProximoValor], { relativeTo: this.route });
+    });
   }
-
-  constructor(private anonimoService: AnonimoService) {}
 
   mostrarModal: boolean = false;
 
