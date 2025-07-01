@@ -17,7 +17,6 @@ export class CamposDadosDeUsuarioComponent {
   @Input() cidade: string = '';
   @Input() estado: string = '';
 
-
   @Output() nomeChange = new EventEmitter<string>();
   @Output() cpfChange = new EventEmitter<string>();
   @Output() emailChange = new EventEmitter<string>();
@@ -59,5 +58,5 @@ export class CamposDadosDeUsuarioComponent {
   onEstadoChange(value: string) {
     this.estado = value;
     this.estadoChange.emit(value);
-  }
+  }
 }
