@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 import { AnonimoService } from '../../service/data-anonimo.service';
 import { UsuariosService } from '../../service/usuarios.service';
-import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { TituloPrincipalComponent } from '../../componente/titulo-principal/titulo-principal.component';
@@ -42,7 +42,14 @@ export class IdentificacaoDeUsuarioComponent {
   estado = '';
   anonimo = false;
 
-  constructor(private usuariosService: UsuariosService, private anonimoService: AnonimoService) {}
+  constructor(private usuariosService: UsuariosService, private anonimoService: AnonimoService, private router: Router) {}
+
+  getAnonimo() {
+    this.anonimoService.getAnonimo().subscribe(valor => {
+      this.anonimo = valor;
+    });
+    return this.anonimo;
+  }
 
   enviarFormulario() {
     const dados = {
@@ -56,13 +63,16 @@ export class IdentificacaoDeUsuarioComponent {
       estado: this.estado,
       ativo: true
     };
-  }
 
-  // submeter() {
-  //   this.services.incluir(this.usuario).subscribe(() => {
-  //       this.router.navigate([this.urlDeProximoValor], { relativeTo: this.route });
-  //   });
-  // }
+    this.usuariosService.criarUsuario(dados).subscribe({
+    next: () => {
+      setTimeout(() => this.router.navigate([this.urlDeProximoValor]), 1500);
+    },
+    error: () => {
+      console.error('Erro ao enviar os dados do usuário');
+    }
+  });
+  }
 
   mostrarModal: boolean = false;
 
@@ -77,14 +87,6 @@ export class IdentificacaoDeUsuarioComponent {
       this.mostrarModal = false;
   }
 
-  getAnonimo(): boolean {
-    let isAnonimo: boolean = false;
-    this.anonimoService.getAnonimo().subscribe(valor => {
-      isAnonimo = valor;
-    });
-    return isAnonimo;
-  }
-
   isVitimaFraude: boolean = false;
   outrasVitimas: boolean = false;
   quantidadeVitimas: number = 1;
@@ -97,6 +99,6 @@ export class IdentificacaoDeUsuarioComponent {
       this.outrasVitimas = valor;
       if (!valor) {
           this.quantidadeVitimas = 1;
-      }
-  }
+      }
+  }
 }
